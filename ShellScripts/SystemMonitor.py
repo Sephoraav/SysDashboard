@@ -6,10 +6,16 @@ import os
 # Define the shell script file
 DiscScript = './DiskSpace.sh'
 NetworkScript = './NetworkTraffic.sh'
+CollectData = './collect_data.sh'
+
 # Run disc data script and capture the output
 DiscInfo= subprocess.run([DiscScript], capture_output=True, text=True)
 #Run network data script and capture the output
 NetworkInfo = subprocess.run([NetworkScript], capture_output=True, text=True)
+#Run Disc & Memmory  script and capture the output
+#RAMCPUInfo = subprocess.run([CollectData], capture_output=True, text=True)
+
+
 
 #Clear screen
 import os

@@ -10,7 +10,7 @@ while true; do
     MEMORY_USAGE=$(free | grep Mem | awk '{print $3/$2 * 100}')
     
     # Clear the terminal screen
-    clear
+   clear
     
     # Print data to terminal
     echo "Current System Metrics:"
@@ -18,6 +18,6 @@ while true; do
     echo "CPU Usage: $CPU_USAGE%"
     echo "Memory Usage: $MEMORY_USAGE%"
 
-    # Wait for 5 seconds
+     Wait for 5 seconds
     sleep 5
 done
