@@ -18,6 +18,6 @@ while true; do
     echo "CPU Usage: $CPU_USAGE%"
     echo "Memory Usage: $MEMORY_USAGE%"
 
-     Wait for 5 seconds
+     #Wait for 5 seconds
     sleep 5
 done
