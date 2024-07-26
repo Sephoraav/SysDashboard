@@ -13,12 +13,12 @@ DiscInfo= subprocess.run([DiscScript], capture_output=True, text=True)
 #Run network data script and capture the output
 NetworkInfo = subprocess.run([NetworkScript], capture_output=True, text=True)
 #Run Disc & Memmory  script and capture the output
-#RAMCPUInfo = subprocess.run([CollectData], capture_output=True, text=True)
+RAMCPUInfo = subprocess.run([CollectData], capture_output=True, text=True)
 
 
 
 #Clear screen
-import os
+#import os
 
 def clear_screen():
     # For Windows
@@ -31,25 +31,27 @@ def clear_screen():
 # Clear the screen
 clear_screen()
 
+print ("------ NETWORK SYSTEM MONITORING DASHBOARD ------")
 
 # Print the output
 
+#Run network data script and capture the output
 print(DiscInfo.stdout)
 print(NetworkInfo.stdout)
-
+print(RAMCPUInfo.stdout)
 #print "--------------------"
 
-def UsageStats(cpu_usage, mem_usage, bars=50):
+def UsageStats(cpu_usage, mem_usage, bars=100):
     
     CpuPercentage = (cpu_usage/100.0)
     CpuBar = '█'*int(CpuPercentage*bars) + '-'*(bars- int(CpuPercentage*bars)) 
     MemPercent = (mem_usage/100.0)
     MemBar = '█'*int(MemPercent*bars) + '-'*(bars- int(MemPercent*bars))
 
-    print(f"\r CPU Utilisation: | {CpuBar}|  ", end =" ")
-    print(f" Memory Utilisation: | {MemBar}|  ", end ="\r ")
+    print(f"\r CPU Utilisation: | {CpuBar}|       ", end =" ")
+    print(f" Memory Utilisation: | {MemBar}|      ", end =" ")
     
 while True:
-        UsageStats(psutil.cpu_percent(), psutil.virtual_memory().percent,30)
+        UsageStats(psutil.cpu_percent(interval=0.1), psutil.virtual_memory().percent,40)
         time.sleep(0.5)
 

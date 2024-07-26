@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "Starting data collection..."
+#echo "Starting data collection..."
 
-while true; do
+#while true; do
     # Get CPU usage percentage
     CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
     
@@ -10,14 +10,16 @@ while true; do
     MEMORY_USAGE=$(free | grep Mem | awk '{print $3/$2 * 100}')
     
     # Clear the terminal screen
-   clear
-    
+  # clear
+
+
     # Print data to terminal
-    echo "Current System Metrics:"
-    echo "----------------------"
+    echo -e "\033[0;32mCPU & MEMORY USAGE STATS\033[0m"
+   echo " "
+# echo "----------------------"
     echo "CPU Usage: $CPU_USAGE%"
     echo "Memory Usage: $MEMORY_USAGE%"
 
      #Wait for 5 seconds
-    sleep 5
-done
+ #   sleep 5
+#done
