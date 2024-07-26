@@ -31,8 +31,9 @@ def clear_screen():
 # Clear the screen
 clear_screen()
 
+print ("=================================================")
 print ("------ NETWORK SYSTEM MONITORING DASHBOARD ------")
-
+print ("=================================================")
 # Print the output
 
 #Run network data script and capture the output
@@ -48,10 +49,9 @@ def UsageStats(cpu_usage, mem_usage, bars=100):
     MemPercent = (mem_usage/100.0)
     MemBar = '█'*int(MemPercent*bars) + '-'*(bars- int(MemPercent*bars))
 
-    print(f"\r CPU Utilisation: | {CpuBar}|       ", end =" ")
-    print(f" Memory Utilisation: | {MemBar}|      ", end =" ")
+    print(f"\r CPU Utilisation: | {CpuBar}| {cpu_usage} %   ", end ="  ")
+    print(f" Memory Utilisation: | {MemBar}| {mem_usage} %      ", end =" ")
     
 while True:
-        UsageStats(psutil.cpu_percent(interval=0.1), psutil.virtual_memory().percent,40)
-        time.sleep(0.5)
-
+     UsageStats(psutil.cpu_percent(interval=0.1), psutil.virtual_memory().percent,40)
+     time.sleep(0.5)
